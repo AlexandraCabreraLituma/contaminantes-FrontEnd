@@ -1,0 +1,77 @@
+<form id="registro" [formGroup]="registerProjectForm" (ngSubmit)="onSubmit()" *ngIf="isformulario" >
+  <h2>Register Project</h2>
+
+  <div class="form-group">
+    <label  class="cols-sm-2 control-label">title</label>
+    <div class="input-container">
+      <i class="fa fa-university icons"></i>
+      <input type="text" formControlName="vtitle" [(ngModel)] = "title"   placeholder="Title"  class="input-field" [ngClass]="{ 'is-invalid': submitted && f.vtitle.errors }" />
+    </div>
+    <div *ngIf="submitted && f.vtitle.errors" class="form-horizontal alert alert-danger fade in">
+      <div *ngIf="f.vtitle.errors.required">Title is required</div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label class="cols-sm-2 control-label">Description</label>
+    <div class="input-container">
+      <i class="fa fa-book icons"></i>
+      ​<textarea id="txtArea" rows="5" cols="70" placeholder="Description"   formControlName="vdescription"  [(ngModel)] = "description" [ngClass]="{ 'is-invalid': submitted && f.vdescription.errors }"></textarea>
+    </div>
+    <div *ngIf="submitted && f.vdescription.errors" class="form-horizontal alert alert-danger fade in">
+      <div *ngIf="f.vdescription.errors.required">Description is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label  class="cols-sm-2 control-label">Key words</label>
+    <div class="input-container">
+      <i class="fa fa-book icons"></i>
+      <input class="input-field" type="text" placeholder="Key words" formControlName="vkey_words" [(ngModel)] = "key_words" [ngClass]="{ 'is-invalid': submitted && f.vkey_words.errors}">
+    </div>
+    <div *ngIf="submitted && f.vkey_words.errors" class="form-horizontal alert alert-danger fade in">
+      <div *ngIf="f.vkey_words.errors.required">Key words objects is required</div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label  class="cols-sm-2 control-label">Initial Date</label>
+    <div class="input-container">
+      <i class="fa fa-calendar icons"></i>
+      <input class="input-field" type="date"  formControlName="vinitial_date"  [(ngModel)] = "initial_date" [ngClass]="{ 'is-invalid': submitted && f.vinitial_date.errors }"   >
+    </div>
+    <div *ngIf="submitted && f.vinitial_date.errors" class="form-horizontal alert alert-danger fade in">
+      <div *ngIf="f.vinitial_date.errors.required">Initial Date is required</div>
+
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label  class="cols-sm-2 control-label">Final Date</label>
+    <div class="input-container">
+      <i class="fa fa-calendar icons"></i>
+      <input class="input-field" type="date"  formControlName="vfinal_date"  [(ngModel)] = "final_date" (focus)="closeFinalDate()" (blur)="comparate()" [ngClass]="{ 'is-invalid': submitted && f.vfinal_date.errors }"   >
+    </div>
+    <div *ngIf="submitted && f.vfinal_date.errors" class="form-horizontal alert alert-danger fade in">
+      <div *ngIf="f.vfinal_date.errors.required">Final Date is required</div>
+
+    </div>
+    <div *ngIf="advertenciaFinalDate" id="dialogAdvertenciaFinalDate"class="form-horizontal alert alert-danger fade in" >
+      <strong >Warning: Final Date is wrong</strong>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <button id="btnRegistro" class="btn btn-primary">Register</button>
+  </div>
+</form>
+<div id="registroExisto" *ngIf="isregistro">
+  <div  class="alert alert-success alert-dismissible">
+    <strong>Congratulations!</strong> Project Register!!!
+    <br>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>

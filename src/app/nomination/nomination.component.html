@@ -1,0 +1,108 @@
+<h1 class="container text-center">
+  Search
+</h1>
+<div class="container">
+<div class="col-sm-3 text-center" >
+    <div >
+      <label  class="cols-sm-2 control-label">Profile Name:</label>
+      <div class="input-container">
+        <i class="fa fa-user-circle-o icons"></i>
+        <input type="text" [(ngModel)] = "name"   placeholder="Name"  class="input-field"  />
+      </div>
+    </div>
+    <div >
+      <label  class="cols-sm-2 control-label">Project title:</label>
+      <div class="input-container">
+        <i class="fa fa-university icons"></i>
+        <input type="text" [(ngModel)] = "title"   placeholder="Project title"  class="input-field"  />
+      </div>
+    </div>
+
+    <div >
+      <label  class="cols-sm-2 control-label">Choose Working Day:</label>
+      <div class="input-container">
+        <i class="fa fa-building icons"></i>
+        <select class="input-field"   [(ngModel)] = "working_day" >
+          <ng-container *ngFor="let w_d of working_days" >
+            <option value= {{w_d}}>{{w_d}} </option>
+          </ng-container>
+        </select>
+      </div>
+
+    </div>
+    <div >
+      <label  class="cols-sm-2 control-label">Choose Level:</label>
+      <div class="input-container">
+        <i class="fa fa-building icons"></i>
+        <select class="input-field"   [(ngModel)] = "nivel" >
+          <ng-container *ngFor="let nv of nivels" >
+            <option  value= {{nv}} >{{nv}}  </option>
+          </ng-container>
+        </select>
+      </div>
+
+    </div>
+  <div >
+    <label  class="cols-sm-2 control-label">Initial Date</label>
+    <div class="input-container">
+      <i class="fa fa-calendar icons"></i>
+      <input class="input-field" type="date"  [(ngModel)] = "initial_date" >
+    </div>
+  </div>
+  <div >
+    <label  class="cols-sm-2 control-label">Final Date</label>
+    <div class="input-container">
+      <i class="fa fa-calendar icons"></i>
+      <input class="input-field" type="date" [(ngModel)] = "final_date" (focus)="closeFinalDate()" (blur)="comparate()" >
+    </div>
+    <div *ngIf="advertenciaFinalDate" id="dialogAdvertenciaFinalDate"class="form-horizontal alert alert-danger fade in" >
+      <strong >Warning: Final Date is wrong</strong>
+    </div>
+
+  </div>
+    <div >
+      <button class="btn btn-lg btn-warning" (click)="readSearchProjectProfileAdvance()" ><span class="glyphicon glyphicon-search">Search</span></button>
+    </div>
+</div>
+
+<div class="col-sm-8 text-left"  *ngIf="!isData">
+  <div class="alert alert-inf col-sm-10" >
+    <strong>Info!</strong> No found Result
+  </div>
+</div>
+
+<div class="col-sm-9 text-left "id="cardsInformacion" *ngIf="isData">
+
+  <div *ngFor="let i of data" >
+
+    <div class="card">
+      <h1 class="w3-panel card-header bg-primary text-center">{{i.profile.name}}</h1>
+      <div class="card-body">
+        <div class="row vdivide">
+          <div class="col-sm-4 text-center">
+
+            <h6 class="card-subtitle mb-2 text-muted">Working Day: {{i.profile.working_day}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Level: {{i.profile.nivel}}</h6>
+            <h5 class="card-subtitle mb-2 text-muted">Initial Date:{{i.project.initial_date | date }}</h5>
+            <h5 class="card-subtitle mb-2 text-muted">Final Date:{{i.project.final_date | date }}</h5>
+          </div>
+          <div class="col-sm-7 text-left">
+            <h4 class="card-title">Description:{{i.profile.description}}</h4>
+            <p class="card-text"></p>
+            <hr>
+            <h4 class="card-title">About Project:</h4>
+            <p class="card-text">{{i.project.title}}</p>
+            <button class="btn btn-info" (click)="openProfile(i.id)">More Information</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+</div>
+</div>
+<br>
+<br>

@@ -1,0 +1,102 @@
+<div class="container"  align="right">
+  <div class="btn-group text-right" role="group">
+    <button class="btn btn-lg btn-secondary" (click)="readProjectUser()"><span class="glyphicon glyphicon-search"></span> All</button>
+  <button class="btn btn-lg btn-secondary" (click)="readProyectUserEnabled()"><span class="fa fa-unlock text-success"></span> Enabled</button>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="col-sm-3 text-center" >
+    <div >
+      <label  class="cols-sm-2 control-label">Title:</label>
+      <div class="input-container">
+        <i class="fa fa-user-circle-o icons"></i>
+        <input type="text" [(ngModel)] = "title"   placeholder="Name"  class="input-field"  />
+      </div>
+    </div>
+    <div>
+      <label class="cols-sm-2 control-label">Key Word:</label>
+      <div class="input-container">
+        <i class="fa fa-user-circle-o icons"></i>
+        <input type="text" [(ngModel)] = "key_words"   placeholder="Key Words"  class="input-field"  />
+      </div>
+    </div>
+
+    <div >
+      <label  class="cols-sm-2 control-label">Initial Date</label>
+      <div class="input-container">
+        <i class="fa fa-calendar icons"></i>
+        <input class="input-field" type="date"  [(ngModel)] = "initial_date" >
+      </div>
+    </div>
+    <div >
+      <label  class="cols-sm-2 control-label">Final Date</label>
+      <div class="input-container">
+        <i class="fa fa-calendar icons"></i>
+        <input class="input-field" type="date" [(ngModel)] = "final_date" (focus)="closeFinalDate()" (blur)="comparate()" >
+      </div>
+      <div *ngIf="advertenciaFinalDate" id="dialogAdvertenciaFinalDate"class="form-horizontal alert alert-danger fade in" >
+        <strong >Warning: Final Date is wrong</strong>
+      </div>
+
+    </div>
+    <div >
+      <label class="checkbox text-left">Open
+        <input type="checkbox" [(ngModel)]="state" >
+        <span class="check"></span>
+      </label>
+    </div>
+    <div>
+      <button class="btn btn-lg btn-warning" (click)="readSearchProjectAdvance()" ><span class="glyphicon glyphicon-search">Search</span></button>
+
+    </div>
+
+  </div>
+
+<div class="col-sm-8 text-left"  *ngIf="!isData">
+   <div class="alert alert-inf col-sm-10" >
+     <strong>Info!</strong> No found Result
+   </div>
+</div>
+<div class="col-sm-9 text-left "id="cardsInformacion" *ngIf="isData">
+
+  <div *ngFor="let i of data" >
+
+      <div class="card">
+        <h1 class="w3-panel card-header bg-primary text-center"  >{{i.title}}
+          <i class="fa fa-lock navbar-right w3-xlarge w3-padding pointer text-danger" (click)="updateProject(i.id,i.title,i.description,i.key_words,i.initial_date,i.final_date,false)" ></i>
+          <i class="fa fa-unlock navbar-right w3-xlarge w3-padding pointer text-success"  (click)="updateProject(i.id,i.title,i.description,i.key_words,i.initial_date,i.final_date,true)"></i>
+
+        </h1>
+        <div class="card-body">
+          <div class="row vdivide">
+            <div class="col-sm-4 text-center">
+              <i class="fa fa-unlock fa-3x text-success" *ngIf="i.enabled" ></i>
+              <i class="fa fa-lock fa-3x text-danger" *ngIf="!i.enabled" ></i>
+              <h6 class="card-subtitle mb-2 text-muted">Initial Date: {{i.initial_date | date}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Final Date: {{i.final_date | date}}</h6>
+            <!--  <h5 class="card-title">Category:{{i.category}}</h5>
+              -->
+            </div>
+            <div class="col-sm-7 text-left">
+              <h4 class="card-title">Description:</h4>
+              <p class="card-text">{{i.description}}</p>
+              <hr>
+              <h4 class="card-title">Key Word:</h4>
+              <p class="card-text">{{i.key_words}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <br>
+      <br>
+
+
+
+  </div>
+
+</div>
+</div>
+<br>
+<br>
