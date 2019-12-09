@@ -11,6 +11,3 @@ notifications:
   email:
     recipients:
       - alecabreralituma2@gmail.com
-script:
-  - ng test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-  - ng e2e --protractor-config=e2e/protractor-travis.conf.js
