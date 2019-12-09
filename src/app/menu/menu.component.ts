@@ -8,9 +8,6 @@ import {HttpService} from '../shared/service/http.service';
 })
 export class MenuComponent implements OnInit {
 
-  isSeesion = false;
-  notSeesion = true;
-
   constructor(private conex: HttpService) {
 
   }
