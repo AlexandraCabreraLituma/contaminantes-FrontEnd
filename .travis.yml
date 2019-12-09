@@ -11,10 +11,5 @@ notifications:
   email:
     recipients:
       - alecabreralituma2@gmail.com
-cache:
-  directories:
-    - ./node_modules
-install:
-  - npm install
 script:
   - ng test
