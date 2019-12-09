@@ -11,3 +11,10 @@ notifications:
   email:
     recipients:
       - alecabreralituma2@gmail.com
+cache:
+  directories:
+    - ./node_modules
+install:
+  - npm install
+script:
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
