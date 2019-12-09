@@ -17,4 +17,5 @@ cache:
 install:
   - npm install
 script:
- - ng e2e --protractor-config=e2e/protractor-travis.conf.js
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - ng e2e --protractor-config='e2e/protractor-travis.conf.js'
