@@ -1,9 +1,230 @@
-footer{
+/*==== Cambiar cuando el navbar colapsa
+* https://stackoverflow.com/questions/19827605/change-bootstrap-navbar-collapse-breakpoint-without-using-less
+*/
+@media (max-width: 1100px) {
+  .navbar-header {
+    float: none;
+  }
+  .navbar-left,.navbar-right {
+    float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .collapse.in{
+    display:block !important;
+  }
+}
+
+/*==== Cambiar colores del navbar
+* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0
+*/
+
+.navbar-default {
+  background-color: #66a1cb;
+  border-color: #66a1cb;
+}
+.navbar-default .navbar-brand {
+  color: #009bff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #0070b4;
+}
+.navbar-default .navbar-text {
+  color: #009bff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #009bff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #0070b4;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #0070b4;
+  background-color: #d1f9ff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #0070b4;
+  background-color: #d1f9ff;
+}
+.navbar-default .navbar-toggle {
+  border-color: #d1f9ff;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #d1f9ff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #009bff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #009bff;
+}
+.navbar-default .navbar-link {
+  color: #009bff;
+}
+.navbar-default .navbar-link:hover {
+  color: #0070b4;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #009bff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #0070b4;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #0070b4;
+    background-color: #d1f9ff;
+  }
+}
+
+/*==== Cambiar el tamano del navbar
+* https://bootstrapious.com/p/how-to-change-bootstrap-navbar-height
+*/
+
+#navbaruda {
+  min-height: 86px;
+  background-color: #0070b4;
+}
+
+#navbar-branduda {
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+}
+
+@media (min-width: 768px) {
+  #navbar-navuda > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+
+/*==== Flexbox
+* https://www.w3schools.com/css/css3_flexbox.asp
+*/
+
+/*==== Centrar vertical y horizontal (perfect centering)*/
+.flex-container-pc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 86px;
+}
+
+/*==== Justificar a la izquierda, centrar vertical*/
+.flex-container-vc {
+  display: flex;
+  height: 86px;
+  align-items: center;
+}
+
+/*==== Justificar a la izquierda, centrar vertical*/
+.flex-container-vc1 {
+  display: flex;
+  height: 52px;
+  align-items: center;
+}
+
+/*==== Justificar a la derecha, centrar vertical*/
+.flex-container-rc {
+  display: flex;
+  height: 86px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+/*==== Columnas
+* https://www.w3schools.com/howto/howto_css_two_columns.asp
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.columnp {
+  float: left;
+  width: 50%;
   padding: 10px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  position: fixed;
+  font-weight: bold
+}
+
+/* Clear floats after the columns */
+.rowp:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*==== Gradiente calidad ambiental*/
+.barragrad{
+  background-image: linear-gradient(#d1f9ff, #d1f9ff, #99f1ff);
+}
+
+/*==== Cambiar el tamaño del texto de los elementos del navbar cuando la resolucion es diferente*/
+@media screen and (max-width: 1199px) and (min-width: 1099px) {
+  li.txtnavbar {
+    font-size: 11.5px;
+    /*font-weight: bold;*/
+  }
+}
+.text{
+  color: #ffffff;
   text-align: center;
+}
+.espacio20{
+  height: 20px;
+}
+#logo-uda{
+  width:190px;
+}
+#mapaUda{
+ border:0;
+ height: 300px;
+
+}
+.reparated{
+  color: #ffffff;
+}
+.ilink{
+  cursor: pointer;
 }
