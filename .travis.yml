@@ -14,5 +14,3 @@ notifications:
 cache:
   directories:
     - ./node_modules
-install:
-  - npm install
