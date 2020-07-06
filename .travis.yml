@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '12'
+addons:
+  chrome: stable
+branches:
+  - develop
+  - /^release-[0-999].[0-999]$/
+  - master
+notifications:
+  email:
+    recipients:
+      - alecabreralituma2@gmail.com
+cache:
+  directories:
+    - ./node_modules
+install:
+  - npm install
+script:
+  - ng test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
