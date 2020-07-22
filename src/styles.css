@@ -1,5 +1,5 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; font-family: 'Source Sans Pro', sans-serif}
+
 
 .card-columns .card {
   display: inline-block;
@@ -7,27 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .alert-inf{
   background-color: #cccccc;
-}
-.card-img-top {
-  width: 100%;
-  height: 200px !important;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
-}
-.card-header{
-  padding: .75rem 1.25rem;
-  margin-bottom: 0;
-}
-
-.card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  text-align: left;
-  font-size: 18px;
-}
-.card-li{
-  text-align: left;
-  color: darkblue;
 }
 
 hr {
@@ -38,39 +17,6 @@ hr {
   margin-right: auto;
   border-style: inset;
   border-width: 1px;
-}
-
-
-#registroExisto{
-  text-align: center;
-  width: 30%;
-  margin: 0 auto;
-}
-
-#btnRegistro {
-  background-color:steelblue;
-  color: white;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-#btnRegistro:hover {
-  opacity: 1;
-}
-#registro{
-  max-width:30%;
-  margin:auto;
-}
-
-
-.input-container {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  width: 100%;
-  margin-bottom: 15px;
 }
 
 .icons {
@@ -99,115 +45,5 @@ hr {
 #espacio{
   height: 25vh;
 }
-#ImagenLogin{
-  width: 900px;
-  height: 400px;
-
-}
-
-#dialogAdvertencia{
-  text-align:center;
-  margin: 0 auto;
-  width: 50%;
-}
-
-.modal {
-  display:block;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  padding-top: 60px;
-}
-
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  border: 1px solid #888;
-  width: 40%;
-}
-
-#imagenValida{
-  width:90px;
-  height:50px;
-
-}
-#validador{
-  width:50%;
-  height:60px;
-}
 .pointer {cursor: pointer;}
-/* custom checkbox */
-.checkbox {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* hide the browser's default checkbox */
-.checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* create custom checkbox */
-.check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-}
-
-/* on mouse-over, add border color */
-.checkbox:hover input ~ .check {
-  border: 2px solid #2489C5;
-}
-
-/* add background color when the checkbox is checked */
-.checkbox input:checked ~ .check {
-  background-color: #2489C5;
-  border:none;
-}
-
-/* create the checkmark and hide when not checked */
-.check:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* show the checkmark when checked */
-.checkbox input:checked ~ .check:after {
-  display: block;
-}
-
-/* checkmark style */
-.checkbox .check:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 
